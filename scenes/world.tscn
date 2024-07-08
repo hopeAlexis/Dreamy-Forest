@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhwfcwfvwakbr"]
+[gd_scene load_steps=23 format=3 uid="uid://dhwfcwfvwakbr"]
 
 [ext_resource type="Texture2D" uid="uid://8btthw38cttl" path="res://art/sweet_flower.png" id="1_ome6o"]
 [ext_resource type="Texture2D" uid="uid://gynyni7eyvyd" path="res://art/tilesets/tree.png" id="2_3o78q"]
@@ -212,6 +212,18 @@ radius = 14.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5vhd"]
 radius = 29.1548
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tmh4"]
+size = Vector2(640, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rjbe"]
+size = Vector2(7, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu27c"]
+size = Vector2(9, 327)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnejd"]
+size = Vector2(656, 11)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(6, -9)
@@ -259,3 +271,21 @@ dialogue_resource = ExtResource("9_hs4lh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spirit/Interactable"]
 position = Vector2(414, 111)
 shape = SubResource("CircleShape2D_h5vhd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(314, 6)
+shape = SubResource("RectangleShape2D_3tmh4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9.5, 166)
+shape = SubResource("RectangleShape2D_7rjbe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(638.5, 165.5)
+shape = SubResource("RectangleShape2D_hu27c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(315, 334.5)
+shape = SubResource("RectangleShape2D_hnejd")
