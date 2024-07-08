@@ -3,10 +3,19 @@ extends CharacterBody2D
 const speed = 60
 var current_dir = "none"
 
+@onready var interactable_finder: Area2D = $Marker/Interactable_Finder
+
+
+
 func _ready(): #play animation when player spawns
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("chat"):
+		var interactables = interactable_finder.get_overlapping_areas()
+		if interactables.size() > 0:
+			interactables[0].interact()
+			return
 	player_movement(delta)
 
 func player_movement(delta):

@@ -1,0 +1,44 @@
+~ start
+if wake_status != "awoken":
+	Spirit: ... Zzz ...
+
+	if has_chatted == "no":
+		Spirit: ... zZz zZz ...
+		Mysterious Orb: I was following you... Hopefully, that didn't scare you.	
+		Mysterious Orb: ...Yes, I can speak. Don't ask me where my mouth is.
+		Mysterious Orb: Anyway, this forest needs your help.
+		Mysterious Orb: As you can see, the spirits, who are supposed to protest this land, are sleeping. This is one of them.
+		Spirit: ... zZz ...
+		set has_chatted = "yes"
+
+	Mysterious Orb: I don't know what happened... Maybe, the smell of something sweet, like a flower, will wake her up...
+
+	if flower_status == "has":
+		- Give the flower
+			Mysterious Orb: Oh! Let's see if this wonderful flower will wake her up!
+			set flower_status = "gave"
+			set wake_status = "awoken"
+			Spirit: ...
+			Mysterious Orb: Oh! It worked! Hello, Spirit.
+			Spirit: Thank you... I was asleep for so long.
+			Spirit: But something about the flowery scent reminded me about this place. So I woke up.
+			Spirit: I will not forget your kindness.
+		- Keep it
+			Mysterious Orb: Well, it's your call.
+
+elif wake_status == "awoken":
+	Spirit: Thank you very much for waking me up.
+	Mysterious Orb: Now this forest is under the Spirit's protection!
+=> END
+
+
+~ pick_flower
+if flower_status != "has":
+	Mysterious Orb: Wow! What a pretty flower!
+	Mysterious Orb: And it smells very sweet...
+	Mysterious Orb: Let's pick it up!
+	set flower_status = "has"
+elif flower_status == "has":
+	Mysterious Orb: This forest has so many beautiful plants...
+
+=> END
